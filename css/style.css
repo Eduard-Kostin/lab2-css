@@ -1,0 +1,118 @@
+/* Зовнішній файл стилів */
+
+/* Універсальний селектор: шрифт для всіх елементів */
+* {
+  font-family: Arial, sans-serif;
+}
+
+body {
+  margin: 0; /* скидання відступу браузера */
+  padding-top: 50px; /* місце під фіксовану панель */
+  background: #f4f4f4;
+  color: #222;
+}
+
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+h1 {
+  color: navy;
+  text-align: center;
+} /* перекривається правилом h1 з <style> */
+h2,
+h3 {
+  color: #333;
+} /* груповий селектор */
+p {
+  line-height: 1.5;
+}
+
+/* Фіксована панель: position + зміщення */
+#top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background: #222;
+  z-index: 10;
+}
+
+/* Навігація: float */
+nav a {
+  float: left;
+  padding: 10px 16px;
+  line-height: 20px;
+  color: #fff;
+  text-decoration: none;
+}
+nav a:hover {
+  background: #555;
+} /* псевдоклас :hover */
+
+/* Блок з відносним позиціюванням */
+.card {
+  position: relative;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 15px;
+}
+.card::after {
+  /* псевдоелемент: скасовує обтікання, блок охоплює зображення */
+  content: "";
+  display: block;
+  clear: both;
+}
+.badge {
+  position: absolute; /* відносно .card */
+  top: 8px;
+  right: 8px;
+  background: crimson;
+  color: #fff;
+  padding: 2px 8px;
+  font-size: 12px;
+}
+.pc-img {
+  float: left; /* текст обтікає зображення */
+  margin: 0 15px 10px 0;
+  border: 1px solid #999;
+}
+.pc-img + p::first-letter {
+  /* сусідній селектор + псевдоелемент */
+  font-size: 1.6em;
+  color: #c0392b;
+}
+
+/* Вкладки без JavaScript: radio + label + :checked */
+.tabs {
+  background: #fff;
+  border: 1px solid #ccc;
+}
+.tabs input {
+  display: none;
+} /* радіокнопки приховані */
+.tabs label {
+  float: left;
+  padding: 3px 8px;
+}
+.tabs label:hover {
+  background: #ddd;
+}
+.tabs input:checked + label {
+  /* label одразу після вибраного radio */
+  background: #000;
+  color: #fff;
+}
+.panel {
+  display: none; /* усі панелі приховані */
+  clear: both; /* починаються під вкладками */
+  padding: 10px 15px;
+}
+#tab1:checked ~ #panel1,
+#tab2:checked ~ #panel2,
+#tab3:checked ~ #panel3 {
+  display: block;
+} /* ~ : показати панель вибраної вкладки */
