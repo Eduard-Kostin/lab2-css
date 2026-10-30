@@ -1,5 +1,3 @@
-/* Зовнішній файл стилів */
-
 /* Універсальний селектор: шрифт для всіх елементів */
 * {
   font-family: Arial, sans-serif;
@@ -86,7 +84,7 @@ nav a:hover {
   color: #c0392b;
 }
 
-/* Вкладки без JavaScript: radio + label + :checked */
+/* Вкладки: radio + label + :checked */
 .tabs {
   background: #fff;
   border: 1px solid #ccc;
